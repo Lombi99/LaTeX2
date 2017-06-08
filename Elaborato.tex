@@ -14,6 +14,8 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{animate}
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 \theoremstyle{plain}
 \newtheorem{definizione}[subsection]{Definizione}
@@ -36,10 +38,12 @@
 \maketitle
 \section{Autovettori e autovalori}
 \begin{definizione}
-	Un vettore ${v} \in \mathbb{R}^2 -\{{0}\}$ è detto autovettore della matrice M se $M{v}\parallel{v}$, cioè: \\
-	\[\exists \lambda \in \mathbb{R} \vert M{v}=\lambda{v}\]
+	Un vettore $\mathbf{v} \in \mathbb{R}^2 -\{{0}\}$ è detto autovettore della matrice M se $M\mathbf{v}\parallel\mathbf{v}$, cioè: \\
+	\[\exists \lambda \in \mathbb{R} \vert M(\mathbf{v})=\lambda\mathbf{v}\]
 	$\lambda$ è detto autovalore di M.
 \end{definizione}
+Una visualizzazione dell'effetto di una matrice su vari vettori. $\mathbf{i}$ e $\mathbf{j}$ sono le basi canoniche del piano cartesiano, $\mathbf{u}$ è un autovettore e $\mathbf{w}$ è un vettore generico. In verde è visualizzata la trasformazione dovuta alla moltiplicazione per la matrice.\\
+\animategraphics[height=2.8in,autoplay,controls]{12}{matrice-}{0}{50}
 \begin{teorema}$\lambda$ è autovalore di $M=\begin{pmatrix}
 	a & c \\ b & d
 	\end{pmatrix} \Leftrightarrow \det{\begin{pmatrix}
@@ -52,7 +56,7 @@ Siano:
 
 $a,b,c,d,\lambda\in\mathbb{R}$ 
 
-${v}=
+$\mathbf{v}=
 \begin{pmatrix}
 v_1 \\ v_2
 \end{pmatrix}$ autovettore di M riferito a $\lambda\quad\quad v_1,v_2\in\mathbb{R}$ 
@@ -128,25 +132,25 @@ a-\lambda & c \\ b & d-\lambda
 	
 	$\lambda$ autovalore di M
 	
-	${u}$ autovettore riferito a $\lambda$
+	$\mathbf{u}$ autovettore riferito a $\lambda$
 	
 	Allora:
 	\[
-	M({u})=\lambda{u}
+	M(\mathbf{u})=\lambda\mathbf{u}
 	\]
 	Moltiplico entrambi i membri per $k\in\mathbb{R}$
 	\[
-	k(M({u}))=k(\lambda{u})
+	k(M(\mathbf{u}))=k(\lambda\mathbf{u})
 	\]
 	Dato che la funzione associata alla matrice è lineare, posso scrivere che
 	\[
-	M(k{u})=\lambda k{u}
+	M(k\mathbf{u})=\lambda k\mathbf{u}
 	\]
-	Chiamando $k{u}={v}$
+	Chiamando $k\mathbf{u}=\mathbf{v}$
 	\[
-	M({v})=\lambda{v}
+	M(\mathbf{v})=\lambda\mathbf{v}
 	\]
-	Di conseguenza anche tutti i vettori ${v}$, paralleli a ${u}$ per costruzione, sono autovettori di $M$ riferiti a $\lambda$.
+	Di conseguenza anche tutti i vettori $\mathbf{v}$, paralleli a $\mathbf{u}$ per costruzione, sono autovettori di $M$ riferiti a $\lambda$.
 	 
 	\qed
 
@@ -231,8 +235,8 @@ M(\mathbf{u})\mathbf{v}=M(\mathbf{v})\mathbf{u}
 \]
 Allora, sostituendo dalle prime due equazione $M(\mathbf{u})$ e $M(\mathbf{v})$, si ottiene:
 \begin{align*}
-\lambda_1 \mathbf{u} \mathbf{v} &= \lambda_2 \mathbf{v}\mathbf{u} \\
-(\lambda_1 - \lambda_2)\mathbf{u}\mathbf{v} &=0
+\lambda_1 \mathbf{u} \cdot\mathbf{v} &= \lambda_2 \mathbf{v}\cdot\mathbf{u} \\
+(\lambda_1 - \lambda_2)\mathbf{u}\cdot\mathbf{v} &=0
 \end{align*}
 Avendo dimostrato che 
 $\lambda_1 - \lambda_2 \ne 0$, è necessario che $\mathbf{u}\cdot\mathbf{v}=0$, quindi $\mathbf{u}$ e $\mathbf{v}$ sono ortogonali.\\ \qed
@@ -275,6 +279,9 @@ c \\
 f
 \end{pmatrix}=q_1\mathbf{u} + q_2\mathbf{v}
 \]
+\begin{center}
+	\includegraphics[scale=0.7]{cambio_base.eps}
+\end{center}
 Possiamo quindi ottenere le coordinate $p_1'$ e $p_2'$, corrispondenti di $p_1$ e $p_2$ nel sistema di riferimento determinato dagli autovettori, utilizzando la formula 
 \[
 \begin{pmatrix}
@@ -313,4 +320,5 @@ p_2
 =
 p_1'\mathbf{u}+p_2'\mathbf{v}\text{.}
 \]
-\end{document}
+\end{document}\grid
+\grid
